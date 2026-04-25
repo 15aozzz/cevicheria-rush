@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cevichería El Rico Pez</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Import Maps para usar Three.js moderno mediante modulos -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="hud-container">
+        <!-- Superior Derecha: Dinero -->
+        <div id="money-display">
+            <div id="money-text">S/. <span id="money-amount">0</span></div>
+            <div id="money-goal">Meta: S/. 500</div>
+        </div>
+
+        <!-- Superior Izquierda: Pedidos -->
+        <div id="orders-container"></div>
+
+        <!-- Ingredientes seleccionados (Abajo centro) -->
+        <div id="current-selection-container" style="position:absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); padding: 10px; border: 2px solid #fff; color: #fff; font-size: 14px; text-shadow: 1px 1px 0 #000; display: none;">
+            Preparando: <span id="current-ingredients" style="color: #ffffaa;">Nada</span>
+        </div>
+
+        <div id="hover-text" style="position:absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 18px; font-weight: bold; text-shadow: 2px 2px 0 #000; display: none; pointer-events: none;"></div>
+
+        <!-- Lado Izquierdo: Órdenes Activas -->
+        <div id="orders-container"></div>
+
+        <!-- Centro: Crosshair -->
+        <div id="crosshair"></div>
+
+        <!-- Alerta de Caída / Interacción -->
+        <div id="interaction-prompt">Presiona [E]</div>
+        
+        <!-- Pantalla de Inicio -->
+        <div id="start-screen">
+            <h1>CEVICHERÍA<br>"EL RICO PEZ"</h1>
+            <p><strong>¡Al Toque Nomás!</strong></p>
+            <p class="click-start">[ CLIC PARA EMPEZAR ]</p>
+            <div class="instructions">
+                WASD: Caminar<br>
+                Mouse: Mirar<br>
+                E: Interactuar a<br>
+                Espacio: Confirmar Pedido
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modulo Principal -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

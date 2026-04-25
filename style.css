@@ -1,0 +1,138 @@
+/* Reset de márgenes y estilo general retro */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Courier New', Courier, monospace; /* Fallback */
+    /* Fuente retro para HUD */
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+}
+
+canvas {
+    display: block;
+    /* Estilo para que el renderizado se estire conservando el pixel-art */
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+}
+
+#hud-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Clic traspasa al canvas */
+}
+
+/* --- Menu de Inicio --- */
+#start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    pointer-events: auto; /* Para recibir clic */
+    z-index: 100;
+}
+
+#start-screen h1 {
+    color: #ffd700;
+    text-shadow: 4px 4px 0 #000;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+#start-screen p {
+    color: #ff3333;
+    margin-bottom: 40px;
+}
+
+.click-start {
+    font-size: 20px !important;
+    color: #00ffff !important;
+    animation: blink 1s infinite step-end;
+    cursor: pointer;
+}
+
+.instructions {
+    margin-top: 40px;
+    font-size: 10px;
+    color: #aaa;
+    line-height: 1.8;
+    text-align: left;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* --- HUD Dinero --- */
+#money-display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+    text-shadow: 2px 2px 0 #000;
+}
+#money-text {
+    color: #ff9900;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+#money-goal {
+    color: #44ff44;
+    font-size: 12px;
+}
+
+/* --- HUD Crosshair --- */
+#crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 0 #000;
+}
+
+/* --- Botón Interacción / HUD central --- */
+#interaction-prompt {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    font-size: 14px;
+    display: none;
+}
+
+/* --- HUD Pedidos --- */
+#orders-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #555;
+    padding: 10px;
+    width: 350px;
+    font-size: 12px;
+    text-shadow: 1px 1px 0 #000;
+}
